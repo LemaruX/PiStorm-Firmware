@@ -17,7 +17,6 @@ If successful "Flashing successful!" will appear, if not it will fail with "Flas
 
 | Command | Description |
 | ----------- | ----------- |
-
 | ./flash.sh | Current experimental firmware for both MaxII and MaxV CPLDs. (Includes support for optional C1/C3 clock calculation for PiStorm2k) |
 | ./flash_experimental.sh | Same as ./flash.sh above, but does not include MaxV CPLDs |
 | ./flash_original.sh | This is the original firmware for MaxII CPLDs that was previously available. |
