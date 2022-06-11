@@ -15,6 +15,7 @@ If successful "Flashing successful!" will appear, if not it will fail with "Flas
 
 ## Included Firmware
 
+
 | Command | Description |
 | ----------- | ----------- |
 | ./flash.sh | Current experimental firmware for both MaxII and MaxV CPLDs. (Includes support for optional C1/C3 clock calculation for PiStorm2k) |
@@ -23,6 +24,7 @@ If successful "Flashing successful!" will appear, if not it will fail with "Flas
 | ./flash_long_hold.sh | Long hold version of the original firmware. |
 | ./flash_longer_hold.sh | Longer hold version of the original firmware. (Has longer AS, Data and Address hold times). **ONLY** available for the EPM240) |
 | ./flash_long_data.sh | Test firmware which only extends Data hold time. Also includes a counter which forces the 68k bus statemachine to maintain the typical 4-cycle access scheme of a real 68k. |
+
 
 **Note** Due to a mix up some time ago when the C1/C3 clock calculation was implemented, the original firmware was overwritten with a copy of the experimental version. Due to this running either ./flash.sh or ./flash_experimental.sh will install the same firmware. If you require the original non-experimental firmware then please run ./flash_original.sh
 
