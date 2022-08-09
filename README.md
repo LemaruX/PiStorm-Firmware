@@ -15,7 +15,7 @@ Clone the repository:
 CD into the PiStorm-Firmware directory:
 `cd PiStorm-Firmware`
 
-You can not run the required firmware update with with the relevant command listed below, this will automatically detect your CPLD version and flash appropriately. **(Do not use sudo to run the flash scripts).**
+You can now run the required firmware update with with the relevant command listed below, this will automatically detect your CPLD version and flash appropriately. **(Do not use sudo to run the flash scripts).**
 
 If successful "Flashing successful!" will appear, if not it will fail with "Flashing failed" and `nprog_log.txt` will be created with more details.
 
