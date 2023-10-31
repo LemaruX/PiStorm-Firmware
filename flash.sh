@@ -5,36 +5,57 @@ then
     echo "PiStorm emulator is running, please stop it first"
     exit 1
 fi
-if ! command -v openocd &> /dev/null
+if ! command -v ./pistormflash &> /dev/null
 then
-    echo "openocd is not installed, please run \"sudo apt install openocd\""
+    echo "pistormflash tool cannot be found."
     exit 1
 fi
 echo -ne "Detecting CPLD... "
-version=$(sudo openocd -f nprog/detect.cfg 2>/dev/null | awk 'FNR == 3 { print $4 }')
-if [ $? -ne 0 ]
-then
-	echo "Error detecting CPLD."
-	exit 1
-fi
+version=$(./pistormflash -c 2>/dev/null | awk -F "," 'FNR == 1 { print $1 }')
 case $version in
-	"0x020a10dd")
+	"idcode=0x020a10dd")
 		echo "EPM240 detected!"
-		./nprog_240.sh
+		echo ""
+		./pistormflash -s ./rtl/EPM240_bitstream.svf
+		if [ $? -eq 0 ]
+		then
+			echo "CPLD flashed successfully!"
+  			exit 0
+		else
+  			echo "Error flashing CPLD."
+  			exit 1
+		fi
 		;;
-	"0x020a20dd")
+	"idcode=0x020a20dd")
 		echo "EPM570 detected!"
-		./nprog.sh
+		echo ""
+		./pistormflash -s ./rtl/bitstream.svf
+		if [ $? -eq 0 ]
+		then
+			echo "CPLD flashed successfully!"
+  			exit 0
+		else
+  			echo "Error flashing CPLD."
+  			exit 1
+		fi
 		;;
-	"0x020a50dd")
+	"idcode=0x020a50dd")
 		echo "MAXV240 detected!"
 		echo ""
 		echo "! ATTENTION ! MAXV SUPPORT IS EXPERIMENTAL ! ATTENTION !"
 		echo ""
-		./nprog_maxv.sh
+		./pistormflash -s ./rtl/maxv_bitstream.svf
+		if [ $? -eq 0 ]
+		then
+			echo "CPLD flashed successfully!"
+  			exit 0
+		else
+  			echo "Error flashing CPLD."
+  			exit 1
+		fi
 		;;
 	*)
-		echo "Could not detect CPLD"
+		echo "Could not detect CPLD."
 		exit 1
 		;;
 esac
