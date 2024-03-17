@@ -6,6 +6,12 @@ This is a bundle of all current, original, and experimental/test PiStorm firmwar
 
 ## Instructions
 
+# Prerequisites 
+- An SD card containing PiOS Lite (available [here](https://www.raspberrypi.com/software/)).
+- Either a keyboard and screen connected to the Pi, or WiFi and SSH enabled in PiOS and a tool to access it (for example PuTTY or KiTTY).
+
+Boot the Pi from the SD card containing PiOS Lite, and login to the Pi when prompted.
+
 Clone the repository:
 `git clone https://github.com/LemaruX/PiStorm-Firmware`
 
