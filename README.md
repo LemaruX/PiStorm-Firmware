@@ -6,7 +6,7 @@ This is a bundle of all current, original, and experimental/test PiStorm firmwar
 
 ## Instructions
 
-# Prerequisites 
+**Prerequisites**
 - An SD card containing PiOS Lite (available [here](https://www.raspberrypi.com/software/)).
 - Either a keyboard and screen connected to the Pi, or WiFi and SSH enabled in PiOS and a tool to access it (for example PuTTY or KiTTY).
 
